@@ -1,0 +1,40 @@
+#server:
+#  port: 9000
+#
+#spring:
+#  security:
+#    basic:
+#      enabled: true #启用安全处理
+#    user:
+#      name: su   #用户名
+#      password: admin   #密码
+#eureka:
+#  instance:                   #定义Eureka实例
+#    hostname: center-server #Eureka实例所在的主机名
+
+#eureka默认情况下,把自己当做客户端来注册自己,所以我们要禁用它
+#  client:
+#    register-with-eureka: false #表示是否将自己注册到Eureka Server上，默认为true
+#    fetch-registry: false       #表示是否从Eureka Server上获取注册信息，默认为true
+
+
+spring:
+  security:
+    basic:
+      enabled:true
+    user:
+      name: su
+      password: admin
+  application:
+    name: eurka-server
+server:
+  port: 9000
+eureka:
+  instance:
+    hostname: center-server
+    prefer-ip-address: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/

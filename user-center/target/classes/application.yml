@@ -1,0 +1,99 @@
+swagger:
+  host: localhost:${server.port}
+  title: API示例
+  desc: 基于springBoot编写的RESful-API
+  version: 0.0.1.SNAPSHOT
+  termsOfServiceUrl:
+  license: Apache 2.0
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.html
+  basePackage: com.vabait
+  groupName: 默认API示例分组
+  contactName: susean
+  contactUrl: https://www.vabait.com
+  contactEmail: linuxlvc@163.com
+
+
+
+server:
+  port: 8082
+
+spring:
+#  security:
+#    user:
+#      name: su
+#      password: admin
+  #rabbitMq
+  rabbitmq:
+    host: www.rainhigh.cn
+    port: 5672
+    username: root
+    password: rainhigh888
+  #    publisher-confirm-type:
+  #mysql
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://www.vabait.com:3306/lifeHelper?useAffectedRows=true&useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: WATCHTV123
+    #舒适化最小最大连接数
+
+  #redis
+  redis:
+    host: www.vabait.com
+    password: WATCHTV123
+    port: 3838
+    database: 0
+    pool:
+    max-active: 8
+    max-wait: -1
+    min-idle: 500
+  #servername
+  application:
+    name: user-center
+
+mybatis:
+  type-aliases-package: com.vabait.usercenter.storage.entity.*
+  mapper-locations: classpath:mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: null
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: true
+    cache-enabled: true #开启二级缓存
+    call-setters-on-nulls: true #map空列不显示问题
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+  MaxAutoRetries: 1 #同一台实例最大重试次数,不包括首次调用
+  MaxAutoRetriesNextServer: 1 #重试负载均衡其他的实例最大重试次数,不包括首次调用
+  OkToRetryOnAllOperations: false  #是否所有操作都重试
+  eager-load:
+    enabled: true
+    clients: distribution, material-product, outer-data
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://su:admin@localhost:9000/eureka/
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    hostname: user-center
+    non-secure-port: ${server.port}
+    instance-id: USER-CENTER
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        exclude: "*"
+#  server:
+#    port: 10821
+#    servlet:
+#      context-path: /
+#    ssl:
+#      enabled: false
+#  endpoint:
+#    health:
+#      show-details: always

@@ -1,0 +1,31 @@
+server:
+  port: 9010
+
+spring:
+  application:
+    name: zuul-proxy
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://su:admin@localhost:9000/eureka/
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    hostname: zuul-proxy
+    non-secure-port: ${server.port}
+    instance-id: zuul-proxy
+zuul:
+  #忽略某个服务使用下面，    ‘*’  代表忽略所有服务
+  #  ignored-services: 服务名
+  routes:
+    user-center: /user/**
+    #局部header  可以置于次顶部，全局制定
+    #忽略header ignored-headers: -------
+    sensitive-headers: Cookie,Set-Cookie,Authorization
+    url: http://localhost:8082/
+  prefix: /api
+  #颗粒度的路由控制 ignoredPatterns: /**/admin/**   忽略所有包含/admin/的路径
+logging:
+  level:
+    com.netflix: DEBUG

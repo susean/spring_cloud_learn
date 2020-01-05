@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vabait.usercenter.storage.entity.UserMapper">
+
+    <insert id="insertUser" parameterType="com.vabait.usercenter.storage.entity.UserEntity" useGeneratedKeys="true" keyProperty="userId">
+        <selectKey keyProperty="userId" keyColumn="userId" resultType="integer"  order="BEFORE">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into user_tb
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="userId!=null">userId,</if>
+            <if test="userName!=null">userName,</if>
+            <if test="password!=null">password,</if>
+            <if test="userType!=null">userType,</if>
+        </trim>
+        values
+        <trim prefix="(" suffixOverrides="," suffix=")">
+            <if test="userId!=null">#{userId},</if>
+            <if test="userName!=null">#{userName},</if>
+            <if test="password!=null">#{password},</if>
+            <if test="userType!=null">#{userType},</if>
+        </trim>
+    </insert>
+
+    <update id="updateUser" parameterType="com.vabait.usercenter.storage.entity.UserEntity">
+        update user_tb
+        <trim prefix="set" suffixOverrides=",">
+            <if test="userName!=null">userName=#{userName},</if>
+            <if test="mobilePhone!=null">mobilePhone=#{mobilePhone},</if>
+            <if test="screenName!=null">screenName=#{screenName},</if>
+            <if test="realName!=null">realName=#{realName},</if>
+            <if test="idNumber!=null">idNumber=#{idNumber},</if>
+            <if test="password!=null">password=#{password},</if>
+            <if test="modifiedDate!=null">modifiedDate=#{modifiedDate},</if>
+            <if test="emailAddress!=null">emailAddress=#{emailAddress},</if>
+            <if test="loginDate!=null">loginDate=#{loginDate},</if>
+            <if test="lastLoginDate!=null">lastLoginDate=#{lastLoginDate},</if>
+            <if test="urlHead!=null">urlHead=#{urlHead},</if>
+            <if test="isPwdReset!=null">isPwdReset=#{isPwdReset},</if>
+            <if test="weChatId!=null">weChatId=#{weChatId},</if>
+            <if test="superUserId!=null">superUserId=#{superUserId},</if>
+        </trim>
+        where
+        userId=#{userId}
+    </update>
+
+    <select id="login" parameterType="com.vabait.usercenter.storage.entity.UserEntity" resultType="com.vabait.usercenter.storage.entity.UserEntity">
+        select * from user_tb where userName=#{userName} and password=#{password}
+    </select>
+
+</mapper>

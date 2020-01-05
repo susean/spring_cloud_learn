@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.vabait.centerserver.CenterServerApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.234 s - in com.vabait.centerserver.CenterServerApplicationTests

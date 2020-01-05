@@ -1,0 +1,67 @@
+{
+  "groups": [
+    {
+      "name": "swagger",
+      "type": "com.vabait.usercenter.api.swagger.Swagger2Config",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    }
+  ],
+  "properties": [
+    {
+      "name": "swagger.base-package",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    },
+    {
+      "name": "swagger.contact-email",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    },
+    {
+      "name": "swagger.contact-name",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    },
+    {
+      "name": "swagger.contact-url",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    },
+    {
+      "name": "swagger.desc",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    },
+    {
+      "name": "swagger.group-name",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    },
+    {
+      "name": "swagger.license",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    },
+    {
+      "name": "swagger.license-url",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    },
+    {
+      "name": "swagger.terms-of-service-url",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    },
+    {
+      "name": "swagger.title",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    },
+    {
+      "name": "swagger.version",
+      "type": "java.lang.String",
+      "sourceType": "com.vabait.usercenter.api.swagger.Swagger2Config"
+    }
+  ],
+  "hints": []
+}
