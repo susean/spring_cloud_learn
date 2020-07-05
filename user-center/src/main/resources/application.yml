@@ -24,10 +24,10 @@ spring:
 #      password: admin
   #rabbitMq
   rabbitmq:
-    host: www.rainhigh.cn
+    host: host
     port: 5672
     username: root
-    password: rainhigh888
+    password: host
   #    publisher-confirm-type:
   #mysql
   datasource:
@@ -40,7 +40,7 @@ spring:
   #redis
   redis:
     host: www.vabait.com
-    password: WATCHTV123
+    password: host
     port: 3838
     database: 0
     pool:
